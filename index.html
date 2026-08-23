@@ -3545,25 +3545,31 @@ renderRecords();
   });
 
   // User video: one file powers both hero background and lower film player.
-  const heroVideo=$('#heroVideo'), layer=$('#flightVideoLayer');
+  const heroVideo = $('#heroVideo');
+const layer = $('#flightVideoLayer');
 
-  // Default homepage cover: local file next to this HTML.
-  // Folder:
-  //   index.html
-  //   EVA Air 777-300ER aerial filming (Full Version) _長榮航空 波音777-300ER 空拍(完整版) - EVA Air (720p, h264, youtube).mp4
-  const LOCAL_HERO_VIDEO='EVA Air 777-300ER aerial filming (Full Version) _長榮航空 波音777-300ER 空拍(完整版) - EVA Air (720p, h264, youtube).mp4';
-  if(heroVideo){
-    heroVideo.src=LOCAL_HERO_VIDEO;
-    heroVideo.muted=true;
-    heroVideo.defaultMuted=true;
-    heroVideo.autoplay=true;
-    heroVideo.loop=true;
-    heroVideo.playsInline=true;
-    heroVideo.load();
-    heroVideo.play().catch(()=>{});
-    heroVideo.addEventListener('canplay',()=>layer?.classList.add('has-video'),{once:true});
-    heroVideo.addEventListener('error',()=>layer?.classList.add('video-error'),{once:true});
-  }
+if (heroVideo) {
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+  heroVideo.autoplay = true;
+  heroVideo.loop = true;
+  heroVideo.playsInline = true;
+
+  heroVideo.addEventListener(
+    'canplay',
+    () => layer?.classList.add('has-video'),
+    { once: true }
+  );
+
+  heroVideo.addEventListener(
+    'error',
+    () => layer?.classList.add('video-error'),
+    { once: true }
+  );
+
+  heroVideo.load();
+  heroVideo.play().catch(() => {});
+}
 
   // Drag/drop on film stage.
   $('#filmStage')?.addEventListener('dragover',e=>{e.preventDefault();e.currentTarget.classList.add('dragging')});
