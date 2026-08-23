@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <C:\Users\yehst\OneDrive\Desktop\HTML\EVA Air 777-300ER aerial filming (Full Version) _長榮航空 波音777-300ER 空拍(完整版) - EVA Air (720p, h264, youtube).mp4!-- LOCAL HERO VIDEO: put your video beside this HTML and change only the src below if needed. -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YEH,LI-TSE｜Personal Journal</title>
@@ -1144,7 +1143,7 @@ img{max-width:100%;height:auto}
 .scene-grain{
   z-index:-3;
   opacity:.075;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
   mix-blend-mode:soft-light;
 }
 .scene-light{
@@ -1660,13 +1659,17 @@ img{max-width:100%;height:auto}
 .flight-video-layer,.flight-video-layer video,.flight-video-placeholder{
   position:absolute;inset:0;width:100%;height:100%;pointer-events:none;
 }
-.flight-video-layer video{object-fit:cover;opacity:0;transition:opacity 1s ease;filter:saturate(.75) contrast(.9)}
-.flight-video-layer.has-video video{opacity:1}
-.flight-video-placeholder{
-  background:
-    linear-gradient(180deg,rgba(19,48,57,.2),rgba(19,48,57,.52)),
-    url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2200&q=90") center/cover;
-  transform:scale(1.04);
+.flight-video-layer video{
+  object-fit:cover;
+  opacity:1;
+  transition:opacity .8s ease;
+  filter:saturate(.78) contrast(.92);
+}
+.flight-video-layer{
+  background:#b8d1d9;
+}
+.flight-video-layer.video-error video{
+  opacity:0;
 }
 .flight-sky{
   position:absolute;inset:0;z-index:-3;
@@ -1749,10 +1752,7 @@ img{max-width:100%;height:auto}
 .cockpit-head>div{display:flex;flex-direction:column;gap:4px}
 .cockpit-head span{font-size:8px;letter-spacing:.2em;color:rgba(35,66,57,.55)}
 .cockpit-head b{font-size:10px;letter-spacing:.16em}
-.micro-btn{
-  border:1px solid rgba(35,66,57,.16);background:rgba(255,255,255,.38);color:#36564b;
-  padding:7px 9px;border-radius:999px;font:inherit;font-size:8px;cursor:pointer;
-}
+
 .instrument-ring{
   width:180px;height:180px;margin:26px auto 20px;border-radius:50%;
   display:grid;place-items:center;
@@ -1786,11 +1786,8 @@ img{max-width:100%;height:auto}
 .cockpit-extra div{padding:10px;border-radius:12px;background:rgba(255,255,255,.2)}
 .cockpit-extra span{display:block;font-size:7px;color:rgba(35,66,57,.5)}
 .cockpit-extra b{display:block;margin-top:5px;font-size:16px;font-weight:500}
-.video-upload-hint{
-  position:absolute;right:clamp(18px,4vw,60px);bottom:65px;z-index:4;max-width:300px;text-align:right;
-  color:rgba(255,255,255,.62);font-size:8px;letter-spacing:.12em;
-}
-.video-upload-hint b{display:block;margin-top:5px;font-weight:400;letter-spacing:.03em;line-height:1.6}
+
+
 .flight-scroll{
   position:absolute;left:clamp(18px,4vw,60px);right:clamp(18px,4vw,60px);bottom:23px;z-index:5;
   display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.56);font-size:7px;letter-spacing:.2em;
@@ -1799,21 +1796,15 @@ img{max-width:100%;height:auto}
 .flight-scroll i:after{content:"";position:absolute;left:0;top:0;width:var(--scroll,0%);height:100%;background:#fff}
 .flight-scroll b{margin-left:auto;font-weight:400}
 .flight-film{background:linear-gradient(180deg,#eef3f0,#e4ece8)}
-.film-stage{
-  position:relative;min-height:520px;border-radius:32px;overflow:hidden;background:#162b2b;
-  border:1px solid rgba(255,255,255,.8);box-shadow:0 28px 70px rgba(42,64,57,.14);
-}
-.film-stage video{width:100%;height:100%;min-height:520px;display:block;object-fit:cover}
-.film-empty{
-  position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:9px;
-  background:radial-gradient(circle at center,rgba(104,140,129,.25),rgba(12,31,31,.82));color:#fff;text-align:center;
-}
-.film-empty span{font-size:32px}
-.film-empty b{font-size:15px;letter-spacing:.2em}
-.film-empty small{font-size:9px;opacity:.65}
-.film-empty button{margin-top:10px;padding:11px 15px;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.1);color:#fff;cursor:pointer}
-.film-overlay{position:absolute;left:20px;right:20px;bottom:18px;display:flex;justify-content:space-between;align-items:end;color:#fff;pointer-events:none;text-shadow:0 2px 12px rgba(0,0,0,.35)}
-.film-overlay span{font-size:8px;letter-spacing:.18em}.film-overlay b{font-size:10px;font-weight:400;opacity:.75}
+
+
+
+
+
+
+
+
+
 .mind .mood-panel.reveal,.mind .records.reveal{opacity:1!important;transform:none!important}
 .moods{position:relative;z-index:5}
 .mood{position:relative;z-index:6;pointer-events:auto!important;user-select:none;-webkit-tap-highlight-color:rgba(122,153,142,.18)}
@@ -1857,45 +1848,594 @@ img{max-width:100%;height:auto}
   transform:translateY(-2px);
 }
 
+.hero-local-video{display:block;width:100%;height:100%;object-fit:cover}
 
-/* EVA Air local hero film: the supplied video is the actual cover. */
-.flight-video-layer video{z-index:2;opacity:1}
-.flight-video-layer .flight-video-placeholder{z-index:1;transition:opacity .8s ease}
-.flight-video-layer.video-ready .flight-video-placeholder{opacity:0}
-.flight-video-layer.video-error video{opacity:0}
+/* =========================================================
+   SCI-FI MUSIC DECK
+   ========================================================= */
+.music-page{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(91,181,188,.12),transparent 30%),
+    radial-gradient(circle at 85% 65%,rgba(134,108,190,.10),transparent 32%),
+    linear-gradient(180deg,#101a20 0%,#0b1318 52%,#101b20 100%);
+  color:#dbecef;
+}
+.music-page::before{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background-image:
+    linear-gradient(rgba(120,211,215,.13) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(120,211,215,.13) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);
+}
+.music-page::after{
+  content:"";
+  position:absolute;left:-10%;right:-10%;top:12%;
+  height:1px;background:linear-gradient(90deg,transparent,#72d9dc,transparent);
+  box-shadow:0 0 24px rgba(114,217,220,.55);
+  opacity:.28;
+  animation:musicScan 8s linear infinite;
+}
+@keyframes musicScan{
+  0%{transform:translateY(0);opacity:0}
+  15%{opacity:.35}
+  50%{transform:translateY(48vh)}
+  85%{opacity:.2}
+  100%{transform:translateY(75vh);opacity:0}
+}
+.music-page .section-head,
+.music-page .music-hero,
+.music-page .music-toolbar,
+.music-page .music-grid-real,
+.music-page .music-note,
+.music-page .music-connect{
+  position:relative;z-index:2;
+}
+.music-page .kicker,
+.music-page .small-label,
+.music-page .track-type,
+.music-page .music-count{
+  color:#72d9dc!important;
+  letter-spacing:.2em;
+}
+.music-page h2{
+  color:#f0fbfc;
+  text-shadow:0 0 28px rgba(114,217,220,.16);
+}
+.music-page .section-intro,
+.music-page .music-intro p{
+  color:rgba(218,235,238,.64);
+}
+.music-hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(360px,.78fr);
+  gap:24px;
+  align-items:stretch;
+}
+.music-intro{
+  min-height:390px;
+  padding:38px;
+  border:1px solid rgba(114,217,220,.2);
+  border-radius:28px;
+  background:
+    linear-gradient(135deg,rgba(17,34,42,.86),rgba(18,26,38,.7));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 25px 70px rgba(0,0,0,.24);
+  position:relative;overflow:hidden;
+}
+.music-intro::before{
+  content:"SYSTEM // SOUND MEMORY";
+  position:absolute;right:22px;top:18px;
+  font:8px/1 monospace;color:rgba(114,217,220,.28);letter-spacing:.15em;
+}
+.music-intro::after{
+  content:"";
+  position:absolute;width:180px;height:180px;right:-65px;bottom:-70px;border-radius:50%;
+  border:1px solid rgba(114,217,220,.18);
+  box-shadow:0 0 0 20px rgba(114,217,220,.03),0 0 0 42px rgba(114,217,220,.02);
+}
+.music-intro h2{
+  font-size:clamp(38px,5vw,72px);
+  line-height:.95;margin:26px 0 20px;letter-spacing:-.06em;
+}
+.music-intro h2 span{
+  display:block;font-size:.36em;letter-spacing:.08em;line-height:1.5;
+  color:#91aeb2;
+  margin-top:13px;font-weight:300;
+}
+.spotify-status,.music-sync-state{
+  border:1px solid rgba(114,217,220,.14);
+  background:rgba(114,217,220,.045);
+  border-radius:12px;padding:11px 13px;margin-top:10px;
+  font:9px/1.5 monospace;color:#8eafb2;
+}
+.spotify-status .status-dot{background:#72d9dc;box-shadow:0 0 12px #72d9dc}
+.sync-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#d5bd76;box-shadow:0 0 10px rgba(213,189,118,.55);margin-right:7px}
+.music-feature{
+  min-height:390px;
+  position:relative;overflow:hidden;border-radius:28px;
+  border:1px solid rgba(114,217,220,.25);
+  background:#0a1115;
+  box-shadow:0 30px 80px rgba(0,0,0,.32);
+  transform-style:preserve-3d;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s;
+}
+.music-feature:hover{
+  transform:perspective(900px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+  box-shadow:0 38px 100px rgba(0,0,0,.42),0 0 40px rgba(114,217,220,.08);
+}
+.music-feature-cover{position:absolute;inset:0;display:block}
+.music-feature-cover::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(4,9,12,.05),rgba(4,9,12,.25) 40%,rgba(4,9,12,.95));
+}
+.music-feature-cover img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(.65) contrast(1.08);
+  transition:transform 1s ease,filter .5s;
+}
+.music-feature:hover img{transform:scale(1.06);filter:saturate(.85) contrast(1.1)}
+.music-feature-content{
+  position:absolute;left:28px;right:28px;bottom:28px;z-index:2;
+}
+.music-feature-content h3{
+  margin:8px 0 4px;font-size:40px;letter-spacing:-.04em;color:#fff;
+  text-shadow:0 4px 20px rgba(0,0,0,.45);
+}
+.music-feature-content p{margin:0 0 16px;color:rgba(255,255,255,.65)}
+.spotify-open{
+  display:inline-flex;align-items:center;gap:10px;padding:9px 13px;border-radius:999px;
+  color:#a9f2ee!important;border:1px solid rgba(114,217,220,.32);
+  background:rgba(5,15,19,.52);backdrop-filter:blur(12px);
+  text-decoration:none!important;font:9px monospace;letter-spacing:.08em;
+}
+.music-toolbar{
+  margin-top:22px;padding:10px;
+  border:1px solid rgba(114,217,220,.14);border-radius:18px;
+  background:rgba(15,28,34,.72);display:flex;justify-content:space-between;align-items:center;gap:10px;
+  backdrop-filter:blur(14px);
+}
+.music-filter{display:flex;gap:5px;flex-wrap:wrap}
+.music-filter button{
+  appearance:none;border:1px solid transparent;border-radius:10px;
+  background:transparent;color:#7f9a9f;padding:9px 12px;
+  font:9px monospace;letter-spacing:.1em;cursor:pointer;transition:.22s;
+}
+.music-filter button:hover,.music-filter button.active{
+  color:#c9ffff;border-color:rgba(114,217,220,.28);background:rgba(114,217,220,.08);
+  box-shadow:0 0 18px rgba(114,217,220,.06);
+}
+.music-grid-real{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:12px;
+}
+.music-grid-real .track-card{
+  min-width:0;overflow:hidden;border-radius:17px;
+  border:1px solid rgba(114,217,220,.12);
+  background:linear-gradient(180deg,rgba(23,38,45,.92),rgba(10,18,23,.94));
+  box-shadow:0 15px 35px rgba(0,0,0,.18);
+  transition:transform .28s, border-color .28s,box-shadow .28s;
+}
+.music-grid-real .track-card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(114,217,220,.42);
+  box-shadow:0 24px 55px rgba(0,0,0,.35),0 0 28px rgba(114,217,220,.06);
+}
+.music-grid-real .track-cover{position:relative;aspect-ratio:1;display:block;overflow:hidden;background:#101b20}
+.music-grid-real .track-cover img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.72)}
+.music-grid-real .track-card:hover .track-cover img{filter:saturate(1);transform:scale(1.04)}
+.music-grid-real .track-cover::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(135deg,rgba(114,217,220,.08),transparent 40%,rgba(110,86,174,.12));
+}
+.track-rank{
+  position:absolute;left:9px;top:9px;padding:4px 6px;border-radius:6px;
+  background:rgba(4,11,15,.7);color:#72d9dc;font:8px monospace;backdrop-filter:blur(8px)
+}
+.track-state{
+  position:absolute;right:8px;bottom:8px;opacity:0;
+  padding:5px 6px;border-radius:6px;background:rgba(5,13,17,.82);
+  color:#a9f2ee;font:7px monospace;transition:.2s;
+}
+.track-card:hover .track-state{opacity:1}
+.music-grid-real .track-body{padding:12px}
+.music-grid-real .track-body h4{
+  color:#edf8fa;font-size:13px;line-height:1.3;margin:7px 0 3px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.music-grid-real .artist{color:#9db6ba;font-size:9px}
+.music-grid-real .album{color:#687f84;font-size:8px;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.music-grid-real .track-meta{
+  display:flex;justify-content:space-between;align-items:end;margin-top:15px;
+  padding-top:9px;border-top:1px solid rgba(114,217,220,.08);
+}
+.music-grid-real .track-plays b{display:block;color:#b8d9dc;font:11px monospace}
+.music-grid-real .track-plays span{display:block;margin-top:2px;color:#566e73;font:6px monospace}
+.music-grid-real .track-link{
+  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+  color:#071317!important;background:#72d9dc;text-decoration:none!important;
+  font-size:9px;transition:.2s;
+}
+.music-grid-real .track-link:hover{transform:scale(1.1);box-shadow:0 0 18px rgba(114,217,220,.35)}
+.music-note,.music-connect{
+  border-color:rgba(114,217,220,.12)!important;
+  background:rgba(15,28,34,.6)!important;
+  color:#789398!important;
+}
+.music-connect h3{color:#dff7f8}
+.spotify-brand{
+  border:1px solid rgba(114,217,220,.28)!important;
+  color:#a9f2ee!important;background:rgba(114,217,220,.07)!important;
+}
+@media(max-width:1000px){
+  .music-grid-real{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .music-hero{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .music-intro,.music-feature{min-height:330px}
+  .music-intro{padding:25px}
+  .music-toolbar{align-items:flex-start;flex-direction:column}
+  .music-grid-real{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .music-grid-real .track-body{padding:10px}
+  .music-grid-real .track-body h4{font-size:11px}
+}
+
 
 
 /* =========================================================
-   HERO LOCAL VIDEO
-   Put EVA777.mp4 beside this HTML file.
-   The video itself is the homepage cover.
+   MECHANICAL SPLIT-FLAP CLOCK
+   Physical airport/departure-board inspired design.
    ========================================================= */
-.flight-video-layer{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  z-index:-4!important;
-  overflow:hidden;
-  background:#9db7c0;
+.split-flap-clock{
+  position:relative!important;width:294px!important;height:174px!important;
+  margin:0 auto!important;border-radius:12px!important;
+  background:linear-gradient(90deg,#070908 0%,#151816 48%,#070908 100%)!important;
+  border:1px solid rgba(255,255,255,.16)!important;
+  box-shadow:0 22px 50px rgba(18,37,31,.28),inset 0 1px 0 rgba(255,255,255,.07),inset 0 -8px 18px rgba(0,0,0,.28)!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;overflow:visible!important;
 }
-.flight-video-layer .hero-local-video{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-  display:block!important;
-  opacity:1!important;
-  z-index:0!important;
+.split-housing-top{
+  position:absolute;left:15px;right:15px;top:9px;height:5px;border-radius:2px;
+  background:linear-gradient(90deg,#292d2a,#090b0a,#292d2a);box-shadow:0 1px 0 rgba(255,255,255,.05);
 }
-.flight-video-layer.video-error .hero-local-video{
-  opacity:0!important;
+.split-clock{display:flex!important;align-items:center!important;justify-content:center!important;gap:5px!important;margin-top:2px}
+.split-group{display:flex!important;gap:2px!important;padding:3px!important;border-radius:5px;background:#050606;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),0 3px 8px rgba(0,0,0,.45)}
+.split-card{
+  position:relative!important;width:45px!important;height:63px!important;display:grid!important;place-items:center!important;
+  overflow:hidden!important;border-radius:3px!important;
+  background:linear-gradient(180deg,#191c1b 0%,#111312 49%,#090b0a 50%,#181b19 100%)!important;
+  border:1px solid rgba(255,255,255,.075)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 2px 4px rgba(0,0,0,.38)!important;
+  perspective:180px;
 }
-/* No image is used as the homepage cover. */
-.flight-video-placeholder{
-  display:none!important;
-  background:none!important;
+.split-card:before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;transform:translateY(-50%);background:#050606;box-shadow:0 -1px 0 rgba(255,255,255,.045);z-index:3}
+.split-card span{font:500 39px/1 "Arial Narrow","Helvetica Neue",Arial,sans-serif!important;color:#f4f5f1!important;letter-spacing:-.055em!important;text-shadow:0 1px 2px #000!important;z-index:2}
+.split-card.flipping{animation:splitMechanicalFlip .28s cubic-bezier(.2,.7,.2,1)}
+@keyframes splitMechanicalFlip{0%{transform:perspective(180px) rotateX(0);filter:brightness(1)}42%{transform:perspective(180px) rotateX(-82deg);filter:brightness(.62)}100%{transform:perspective(180px) rotateX(0);filter:brightness(1)}}
+.split-separator{color:#e8ebe7!important;font:700 22px/1 Arial,sans-serif!important;opacity:.72;transform:translateY(-1px)}
+.split-label{margin-top:10px!important;font:600 7px/1 "Courier New",monospace!important;letter-spacing:.22em!important;color:rgba(245,247,243,.52)!important}
+.split-date{margin-top:6px!important;font:6px/1 "Courier New",monospace!important;letter-spacing:.17em!important;color:rgba(245,247,243,.34)!important}
+.split-hinge{position:absolute;top:50%;width:7px;height:22px;transform:translateY(-50%);background:linear-gradient(90deg,#080a09,#303531,#080a09);border:1px solid rgba(255,255,255,.08);border-radius:2px}
+.split-hinge-left{left:-5px}.split-hinge-right{right:-5px}
+@media(max-width:560px){
+  .split-flap-clock{width:248px!important;height:151px!important}
+  .split-card{width:37px!important;height:53px!important}
+  .split-card span{font-size:32px!important}
+  .split-separator{font-size:18px!important}
+}
+
+
+/* Overall goal progress is derived from its child progress bars. */
+.auto-progress{cursor:default!important;pointer-events:none}
+.auto-progress .progress-marker,.auto-progress .progress-tooltip{display:none!important}
+.auto-hint{opacity:.62!important;letter-spacing:.12em!important}
+
+
+
+/* =========================================================
+   FINAL FLIGHT DESIGN SYSTEM · 01
+   Clean aviation / Apple-like editorial polish
+   ========================================================= */
+:root{
+  --flight-bg:#f4f3ee;
+  --flight-surface:rgba(250,250,246,.78);
+  --flight-surface-strong:#fbfaf6;
+  --flight-ink:#202c2a;
+  --flight-muted:#6d7975;
+  --flight-line:rgba(48,67,62,.13);
+  --flight-teal:#6f8e86;
+  --flight-teal-dark:#47655d;
+  --flight-sky:#dce8e8;
+  --flight-amber:#b28a58;
+  --flight-shadow:0 22px 60px rgba(31,48,44,.10);
+  --flight-radius:28px;
+}
+
+body{
+  color:var(--flight-ink);
+  background:
+    radial-gradient(circle at 15% 0%,rgba(255,255,255,.98),transparent 34%),
+    linear-gradient(180deg,#e5ecea 0%,#f4f3ee 24%,#f6f4ef 68%,#e9eeeb 100%);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  letter-spacing:-.01em;
+}
+
+.topbar{
+  background:rgba(247,248,244,.74)!important;
+  border-color:rgba(255,255,255,.86)!important;
+  box-shadow:0 12px 34px rgba(34,51,47,.08)!important;
+}
+.brand{font-weight:650!important;color:#263733!important;letter-spacing:.17em!important}
+.nav a{color:#63716d!important;font-weight:520!important}
+.nav a.active,.nav a:hover{color:#22332f!important;background:rgba(255,255,255,.9)!important}
+
+.section{padding:112px 0!important}
+.section-head{margin-bottom:36px!important}
+.kicker{color:var(--flight-teal-dark)!important;font-weight:650!important;letter-spacing:.20em!important;font-size:9px!important}
+h2{font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue","Noto Sans TC",sans-serif!important;font-size:clamp(42px,5.1vw,66px)!important;font-weight:650!important;letter-spacing:-.055em!important;color:var(--flight-ink)!important}
+.section-intro{color:var(--flight-muted)!important;font-size:13px!important;line-height:1.9!important}
+
+/* Hero: quieter typography so the video remains the hero. */
+.flight-hero .flight-copy{max-width:670px!important}
+.flight-hero h1,.immersive-title h1{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",sans-serif!important;
+  font-weight:720!important;
+  letter-spacing:-.075em!important;
+  line-height:.86!important;
+}
+.flight-hero h1 em{font-style:normal;font-weight:300!important;letter-spacing:-.065em!important}
+.flight-overline,.flight-route,.flight-topline,.flight-readout small,.flight-readout span,.cockpit-head span,.cockpit-head b{
+  font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace!important;
+}
+.flight-quote{font-size:15px!important;line-height:1.95!important;color:rgba(245,248,245,.88)!important;font-weight:430!important}
+.flight-readout{border-top-color:rgba(255,255,255,.30)!important}
+.flight-readout>div{border-left-color:rgba(255,255,255,.28)!important}
+.flight-readout b{font-weight:650!important;letter-spacing:-.025em!important}
+.flight-btn{font-weight:560!important;letter-spacing:.01em!important}
+
+/* Sections read as one coherent flight journal rather than separate cards. */
+.diary-card,.goal-card,.mood-panel,.records,.music-intro,.music-feature,.music-connect{
+  border-color:rgba(255,255,255,.86)!important;
+  box-shadow:var(--flight-shadow)!important;
+}
+.diary-card,.goal-card,.mood-panel,.records{background:rgba(255,255,255,.67)!important}
+.diary-body h3,.goal-card h3,.mood-panel h3,.records-head h3{font-weight:650!important;letter-spacing:-.025em!important}
+.diary-body p,.goal-card>p,.mood-panel>p,.record p{color:var(--flight-muted)!important}
+
+/* Goal system */
+.goals-wrap{gap:20px!important}
+.goal-card{padding:30px!important;border-radius:var(--flight-radius)!important}
+.goal-top{align-items:center!important}
+.goal-icon{background:#e4ece8!important;color:#46665d!important}
+.big-progress{height:10px!important;background:#e5e9e6!important;border:1px solid rgba(70,91,84,.06)!important}
+.big-progress span,.bar span{background:linear-gradient(90deg,#6f8f85,#a9bcb5)!important}
+.goal-note{font-size:10px!important;letter-spacing:.05em!important}
+.goal-note b{font-size:18px!important;color:var(--flight-ink)!important;font-weight:650!important}
+.subject{padding:16px 4px!important;border-top-color:var(--flight-line)!important}
+.subject-row{font-size:12px!important}
+.subject-row b{font-weight:560!important}
+.subject-row span{font-weight:600!important;color:var(--flight-teal-dark)!important}
+.subject .bar{height:6px!important;background:#e7ebe8!important}
+.progress-tooltip{background:#263d37!important}
+.progress-marker{border-color:#6f8e86!important}
+.progress-hint{font-family:"SF Mono",ui-monospace,monospace!important;letter-spacing:.04em!important}
+.pilot{background:linear-gradient(145deg,#334b45,#4e6b62)!important}
+.pilot .big-progress{background:rgba(255,255,255,.17)!important}
+.pilot .goal-icon{background:rgba(255,255,255,.11)!important;color:#edf4f1!important}
+
+/* =========================================================
+   FLIP CLOCK · remove the black housing completely
+   Only the moving split-flap digits remain.
+   ========================================================= */
+.split-flap-clock{
+  width:auto!important;height:auto!important;min-width:0!important;
+  margin:0 auto!important;padding:6px 0 4px!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+.split-housing-top,.split-hinge{display:none!important}
+.split-clock{gap:7px!important;margin:0!important}
+.split-group{
+  gap:3px!important;padding:0!important;border-radius:0!important;
+  background:transparent!important;box-shadow:none!important;
+}
+.split-card{
+  width:44px!important;height:62px!important;
+  border-radius:7px!important;
+  background:linear-gradient(180deg,#fbfbf7 0%,#f3f3ee 49.2%,#dfe2de 50%,#fafaf6 50.8%,#f1f2ee 100%)!important;
+  border:1px solid rgba(46,62,58,.12)!important;
+  box-shadow:0 9px 20px rgba(31,48,44,.10),inset 0 1px 0 rgba(255,255,255,.9)!important;
+}
+.split-card:before{
+  height:1px!important;
+  background:rgba(45,59,55,.20)!important;
+  box-shadow:none!important;
+}
+.split-card span{
+  font-family:"Helvetica Neue",Arial,sans-serif!important;
+  font-size:39px!important;font-weight:620!important;
+  color:#273631!important;text-shadow:none!important;
+}
+.split-card.flipping{animation:splitCleanFlip .30s cubic-bezier(.18,.75,.25,1)}
+@keyframes splitCleanFlip{
+  0%{transform:perspective(170px) rotateX(0deg);filter:brightness(1)}
+  42%{transform:perspective(170px) rotateX(-86deg);filter:brightness(.90)}
+  70%{transform:perspective(170px) rotateX(18deg);filter:brightness(1.02)}
+  100%{transform:perspective(170px) rotateX(0deg);filter:brightness(1)}
+}
+.split-separator{color:#6f817b!important;font-size:21px!important;opacity:.7!important}
+.split-label{margin-top:12px!important;color:#74827e!important;font-size:7px!important;letter-spacing:.22em!important}
+.split-date{color:#9aa49f!important;font-size:7px!important;letter-spacing:.16em!important}
+
+/* Cockpit becomes a light instrument panel, not a heavy dashboard. */
+.cockpit-panel{
+  background:rgba(248,249,245,.70)!important;
+  border-color:rgba(255,255,255,.88)!important;
+  box-shadow:0 26px 70px rgba(29,48,43,.13)!important;
+}
+.cockpit-head{color:#49635b!important}
+.instrument{background:rgba(255,255,255,.46)!important;border-color:rgba(70,92,84,.12)!important}
+.instrument b{font-weight:650!important}
+.cockpit-message{background:rgba(226,235,231,.66)!important;color:#4c625a!important}
+.cockpit-expand{color:#5b7169!important}
+
+/* Music keeps its sci-fi character, but uses the same aviation language. */
+.music-page{background:linear-gradient(180deg,#17252a 0%,#101a1e 100%)!important}
+.music-page .kicker,.music-page .music-count{color:#8bd4d2!important}
+.music-page h2{font-weight:650!important;letter-spacing:-.055em!important}
+.music-page .music-intro{border-color:rgba(139,212,210,.16)!important}
+
+/* Consistent micro-typography */
+button,input,textarea{font-family:inherit}
+button{font-weight:520}
+
+@media(max-width:850px){
+  .section{padding:82px 0!important}
+  h2{font-size:clamp(38px,10vw,54px)!important}
+  .flight-hero h1{font-size:clamp(52px,14vw,82px)!important}
+}
+@media(max-width:560px){
+  .section{padding:68px 0!important}
+  .split-clock{gap:5px!important}
+  .split-card{width:35px!important;height:51px!important;border-radius:6px!important}
+  .split-card span{font-size:31px!important}
+  .split-separator{font-size:17px!important}
+  .split-label{font-size:6px!important}
+  .split-date{font-size:6px!important}
+}
+
+/* =========================================================
+   MINIMAL COCKPIT PANEL · FINAL PASS
+   ========================================================= */
+.cockpit-panel{
+  width:min(100%,360px)!important;
+  padding:20px!important;
+  border-radius:24px!important;
+  background:rgba(246,249,246,.58)!important;
+  box-shadow:0 24px 60px rgba(12,31,29,.18),inset 0 1px 0 rgba(255,255,255,.62)!important;
+}
+.cockpit-head{margin-bottom:2px!important}
+.cockpit-head span{font-size:7px!important;letter-spacing:.24em!important}
+.cockpit-head b{font-size:9px!important;letter-spacing:.18em!important}
+/* Remove the inherited instrument-ring circle/ellipse completely. */
+.split-flap-clock.instrument-ring:before,
+.split-flap-clock.instrument-ring:after,
+.split-flap-clock:before,
+.split-flap-clock:after{display:none!important;content:none!important}
+.split-flap-clock{
+  width:100%!important;height:auto!important;
+  padding:18px 0 10px!important;
+  margin:0!important;
+}
+.split-clock{gap:6px!important}
+.split-card{
+  width:42px!important;height:58px!important;
+  border-radius:6px!important;
+  box-shadow:0 6px 14px rgba(31,48,44,.08),inset 0 1px 0 rgba(255,255,255,.92)!important;
+}
+.split-card span{font-size:36px!important;font-weight:600!important}
+.split-label{margin-top:8px!important;color:rgba(45,63,57,.44)!important}
+.split-date{margin-top:5px!important;color:rgba(45,63,57,.34)!important}
+.cockpit-readouts{margin-top:8px!important;gap:6px!important}
+.instrument{
+  padding:9px 10px!important;
+  border-radius:12px!important;
+  background:rgba(255,255,255,.42)!important;
+  box-shadow:none!important;
+}
+.instrument:hover,.instrument.active{transform:none!important;box-shadow:none!important;background:rgba(255,255,255,.64)!important}
+.instrument span{font-size:6px!important;letter-spacing:.16em!important}
+.instrument b{font-size:12px!important;margin:4px 0!important}
+.instrument i{height:2px!important}
+@media(max-width:560px){
+  .cockpit-panel{width:min(100%,330px)!important;padding:17px!important;border-radius:22px!important}
+  .split-flap-clock{padding-top:15px!important}
+  .split-clock{gap:4px!important}
+  .split-card{width:34px!important;height:49px!important;border-radius:5px!important}
+  .split-card span{font-size:30px!important}
+  .split-separator{font-size:16px!important}
+}
+
+
+/* =========================================================
+   MUSIC — refined palette
+   ========================================================= */
+.music-page{
+  background:
+    radial-gradient(circle at 18% 12%, rgba(150,185,180,.10), transparent 32%),
+    radial-gradient(circle at 82% 88%, rgba(202,185,153,.07), transparent 28%),
+    #111817!important;
+}
+.music-page .section-kicker,
+.music-page .music-eyebrow{
+  color:rgba(213,225,221,.48)!important;
+}
+.music-page h2,
+.music-page h3,
+.music-page .music-title{
+  color:#f2f5f2!important;
+}
+.music-page p,
+.music-page .music-meta,
+.music-page .music-artist{
+  color:rgba(220,229,225,.66)!important;
+}
+.music-page .music-feature,
+.music-page .music-card,
+.music-page .track-card,
+.music-page .song-card{
+  background:rgba(235,241,237,.075)!important;
+  border:1px solid rgba(235,241,237,.12)!important;
+  box-shadow:0 18px 48px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.055)!important;
+}
+.music-page .music-feature:hover,
+.music-page .music-card:hover,
+.music-page .track-card:hover,
+.music-page .song-card:hover{
+  background:rgba(235,241,237,.105)!important;
+  border-color:rgba(183,211,203,.24)!important;
+}
+.music-page .music-accent,
+.music-page .play-progress,
+.music-page .track-progress,
+.music-page .song-progress{
+  background:#a9c8bf!important;
+}
+.music-page .music-accent-text,
+.music-page .play-time,
+.music-page .track-time{
+  color:#a9c8bf!important;
+}
+.music-page .music-button,
+.music-page .play-button,
+.music-page button{
+  color:#edf3f0!important;
+  background:rgba(255,255,255,.08)!important;
+  border-color:rgba(255,255,255,.15)!important;
+}
+.music-page .music-button:hover,
+.music-page .play-button:hover,
+.music-page button:hover{
+  background:rgba(255,255,255,.14)!important;
+  border-color:rgba(169,200,191,.34)!important;
+}
+.music-page .spotify-link,
+.music-page a[href*="spotify"]{
+  color:#b7d3ca!important;
+}
+.music-page .spotify-link:hover,
+.music-page a[href*="spotify"]:hover{
+  color:#e2eee9!important;
+}
+.music-page .music-cover,
+.music-page .album-cover,
+.music-page img{
+  box-shadow:0 18px 42px rgba(0,0,0,.22)!important;
 }
 
 </style>
@@ -1916,16 +2456,17 @@ img{max-width:100%;height:auto}
 
 <main>
 <section class="hero immersive-hero flight-hero" id="home" aria-label="Personal Flight 首頁">
-  <div class="flight-video-layer" id="flightVideoLayer">
+  <div class="flight-video-layer" id="flightVideoLayer" aria-hidden="true">
     <video
       id="heroVideo"
       class="hero-local-video"
-      src="./EVA777.mp4"
+      src="file:///C:/Users/yehst/OneDrive/Desktop/HTML/EVA%20Air%20777-300ER%20aerial%20filming%20(Full%20Version)%20_長榮航空%20波音777-300ER%20空拍(完整版)%20-%20EVA%20Air%20(720p,%20h264,%20youtube).mp4"
       autoplay
       muted
       loop
       playsinline
       preload="auto"
+      aria-label="首頁飛行影片"
     ></video>
   </div>
   <div class="flight-sky"></div>
@@ -1952,11 +2493,15 @@ img{max-width:100%;height:auto}
 
       <div class="flight-readout">
         <div><small>ALTITUDE</small><b id="flightAltitude">38,000</b><span>FT</span></div>
-        <div><small>DESTINATION</small><b>NTU · AERO</b><span>IN PROGRESS</span></div>
+        <div><small>DESTINATION</small><b>IAM · NTU</b><span>IN PROGRESS</span></div>
         <div><small>STATUS</small><b>CLIMBING</b><span>STEADY</span></div>
       </div>
 
-      <div class="flight-actions">
+      <div class="stoic-principle">
+      <blockquote>「不要把餘生浪費在猜測別人在做什麼；把注意力帶回你現在能完成的事情。」</blockquote>
+      <cite>MARCVS AVRELIVS · MEDITATIONS · BOOK 3</cite>
+    </div>
+    <div class="flight-actions">
         <a class="flight-btn primary" href="#goals"><span>查看飛行計畫</span><b>↗</b></a>
         <a class="flight-btn glass" href="#diary"><span>打開飛行日誌</span><b>↓</b></a>
       </div>
@@ -1965,17 +2510,28 @@ img{max-width:100%;height:auto}
     <div class="cockpit-panel reveal" id="cockpitPanel">
       <div class="cockpit-head">
         <div><span>FLIGHT DECK</span><b>YL-001</b></div>
-        <button id="videoUploadTrigger" class="micro-btn" type="button">更換首頁影片</button>
-        <input id="heroVideoInput" type="file" accept="video/mp4,video/webm,video/quicktime" hidden>
       </div>
 
-      <div class="instrument-ring">
-        <div class="ring-center">
-          <small>NOW FLYING</small>
-          <strong id="flightClock">15:48</strong>
-          <span id="flightDate">23 AUG 2026</span>
-        </div>
-      </div>
+      <div class="instrument-ring split-flap-clock" aria-label="機械式翻頁時鐘">
+  <div class="split-housing-top"></div>
+  <div class="split-clock" aria-live="polite">
+    <div class="split-group" data-unit="hours">
+      <div class="split-card"><span>0</span></div><div class="split-card"><span>0</span></div>
+    </div>
+    <div class="split-separator">:</div>
+    <div class="split-group" data-unit="minutes">
+      <div class="split-card"><span>0</span></div><div class="split-card"><span>0</span></div>
+    </div>
+    <div class="split-separator">:</div>
+    <div class="split-group" data-unit="seconds">
+      <div class="split-card"><span>0</span></div><div class="split-card"><span>0</span></div>
+    </div>
+  </div>
+  <div class="split-label">LOCAL TIME · UTC +08</div>
+  <div class="split-date" id="flightDate">23 AUG 2026</div>
+  <div class="split-hinge split-hinge-left"></div>
+  <div class="split-hinge split-hinge-right"></div>
+</div>
 
       <div class="cockpit-readouts">
         <button class="instrument" type="button" data-instrument="progress">
@@ -1988,30 +2544,12 @@ img{max-width:100%;height:auto}
           <span>INNER WEATHER</span><b>CALM</b><i><em style="width:72%"></em></i>
         </button>
       </div>
-
-      <div class="cockpit-message" id="cockpitMessage">
-        <small>FLIGHT NOTE</small>
-        <p>今天不用飛得很快。穩定地往前，就已經在接近目的地。</p>
-      </div>
-
-      <button class="cockpit-expand" id="cockpitExpand" type="button" aria-expanded="false">
-        <span>展開飛行資料</span><b>＋</b>
-      </button>
-      <div class="cockpit-extra" id="cockpitExtra" hidden>
-        <div><span>LOGGED HOURS</span><b>06</b></div>
-        <div><span>WEEKLY LOG</span><b>03</b></div>
-        <div><span>MOOD LOG</span><b id="flightMoodCount">0</b></div>
-      </div>
+    </div>
     </div>
   </div>
 
-  <div class="video-upload-hint" id="videoUploadHint">
-    <span>MY FLIGHT FILM</span>
-    <b>首頁封面直接連接同資料夾的 EVA777.mp4。</b>
-  </div>
-
   <div class="flight-scroll">
-    <span>DESCEND TO EXPLORE</span><i></i><b id="flightScroll">00</b>
+    <span>SCROLL TO EXPLORE</span><i></i><b id="flightScroll">00</b>
   </div>
 </section>
 
@@ -2049,7 +2587,7 @@ img{max-width:100%;height:auto}
     <article class="goal-card reveal">
       <div class="goal-top"><div><div class="kicker">PRIMARY GOAL</div><h3>考上台大應力所</h3></div><div class="goal-icon">⌁</div></div>
       <p>把考試準備拆成可以每天完成的小步驟。</p>
-      <div class="big-progress progress-control" role="slider" tabindex="0" aria-label="調整整體目標進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38" data-progress="38"><span data-width="38"></span><span class="progress-marker"></span><span class="progress-tooltip">38% · 點擊調整</span></div><small class="progress-hint">滑鼠移動預覽 · 點擊更新 · ↑↓ 微調</small>
+      <div class="big-progress progress-control auto-progress" role="progressbar" aria-label="台大應力所整體準備進度（自動計算）" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-progress="0"><span data-width="0"></span></div><small class="progress-hint auto-hint">AUTO · 由下方科目進度自動平均</small>
       <div class="goal-note"><span>整體準備進度</span><b>38%</b></div>
       <div style="margin-top:22px">
         <div class="subject" data-subject="工程數學｜微分方程" tabindex="0"><div class="subject-row"><b>工程數學｜微分方程</b><span>62%</span></div><div class="bar progress-control" role="slider" tabindex="0" aria-label="調整學習進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62" data-progress="62"><span data-width="62"></span><span class="progress-marker"></span><span class="progress-tooltip">62% · 點擊調整</span></div><small class="progress-hint">滑鼠移動預覽 · 點擊更新 · ↑↓ 微調</small></div><div class="subject-details">整理一階與高階微分方程、齊次與非齊次、特殊解法，並確認每個方法的使用條件。</div>
@@ -2064,7 +2602,7 @@ img{max-width:100%;height:auto}
     <article class="goal-card pilot reveal">
       <div class="goal-top"><div><div class="kicker" style="color:#d8e3df">SECOND GOAL</div><h3>成為機師</h3></div><div class="goal-icon">✈</div></div>
       <p>把對飛行的想像，逐步轉成可執行的準備清單。</p>
-      <div class="big-progress progress-control" role="slider" tabindex="0" aria-label="調整整體目標進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="22" data-progress="22"><span data-width="22"></span><span class="progress-marker"></span><span class="progress-tooltip">22% · 點擊調整</span></div><small class="progress-hint">滑鼠移動預覽 · 點擊更新 · ↑↓ 微調</small>
+      <div class="big-progress progress-control auto-progress" role="progressbar" aria-label="成為機師整體準備進度（自動計算）" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-progress="0"><span data-width="0"></span></div><small class="progress-hint auto-hint">AUTO · 由下方準備項目自動平均</small>
       <div class="goal-note"><span>長期準備進度</span><b>22%</b></div>
       <div style="margin-top:30px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14)">
         <div class="subject"><div class="subject-row"><b>英文能力</b><span>進行中</span></div><div class="bar progress-control" role="slider" tabindex="0" aria-label="調整學習進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55" data-progress="55"><span data-width="55"></span><span class="progress-marker"></span><span class="progress-tooltip">55% · 點擊調整</span></div><small class="progress-hint">滑鼠移動預覽 · 點擊更新 · ↑↓ 微調</small></div>
@@ -2248,7 +2786,11 @@ img{max-width:100%;height:auto}
 
     <section class="records reveal">
       <div class="records-head"><h3>完整紀錄</h3><button class="clear" id="clearRecords">清除本機紀錄</button></div>
-      <div id="recordsList"></div>
+      <div class="stoic-principle light">
+      <blockquote>「你可以控制自己的判斷、衝動與選擇；外在發生的事情，則不完全由你掌握。」</blockquote>
+      <cite>MARCVS AVRELIVS · MEDITATIONS</cite>
+    </div>
+<div id="recordsList"></div>
     </section>
   </div>
 </div>
@@ -2256,28 +2798,6 @@ img{max-width:100%;height:auto}
 </main>
 
 
-<section class="flight-film section" id="flight-film">
-  <div class="container">
-    <div class="section-head reveal">
-      <div><div class="kicker">05 · MY FLIGHT FILM</div><h2>把我的天空放進來</h2></div>
-      <p class="section-intro">你可以放自己的飛行、旅行、天空或生活影片。它會同時成為首頁的背景影像。</p>
-    </div>
-    <div class="film-stage reveal" id="filmStage">
-      <video id="filmPreview" src="EVA Air 777-300ER aerial filming (Full Version) _長榮航空 波音777-300ER 空拍(完整版) - EVA Air (720p, h264, youtube).mp4" muted loop autoplay playsinline controls src="./EVA777.mp4"></video>
-      <div class="film-empty" id="filmEmpty">
-        <span>✦</span>
-        <b>EVA AIR · 777-300ER · YOUR SKY</b>
-        <small>支援 MP4 / WebM / MOV</small>
-        <button type="button" id="filmChoose">選擇我的影片</button>
-        <input id="filmInput" type="file" accept="video/mp4,video/webm,video/quicktime" hidden>
-      </div>
-      <div class="film-overlay">
-        <span>PERSONAL FLIGHT FILM</span>
-        <b id="filmFileName">EVA AIR · 777-300ER · AERIAL FILM</b>
-      </div>
-    </div>
-  </div>
-</section>
 <footer class="footer"><div class="flower">❀</div><button class="clear" id="backTop" style="margin-bottom:12px">↑ 回到森林入口</button><br>KEEP GROWING, QUIETLY · <span id="footerYear">2026</span></footer>
 
 <div class="diary-modal" id="diaryModal" aria-hidden="true">
@@ -2858,113 +3378,109 @@ renderRecords();
 })();
 
 
-/* ===== Interactive study progress ===== */
+/* ===== Interactive goal progress ===== */
 (function(){
-  const STORAGE='forestProgress_v1';
+  const STORAGE='forestProgress_v2';
+  const clamp=v=>Math.max(0,Math.min(100,Math.round(Number(v)||0)));
+  const read=()=>{try{return JSON.parse(localStorage.getItem(STORAGE)||'{}')}catch(e){return {}}};
+  const write=data=>{try{localStorage.setItem(STORAGE,JSON.stringify(data))}catch(e){}};
+  const state=read();
+  const cards=[...document.querySelectorAll('.goal-card')];
 
-  function readProgress(){
-    try{return JSON.parse(localStorage.getItem(STORAGE)||'{}')}catch(e){return {}}
-  }
-  function saveProgress(key,val){
-    const data=readProgress();
-    data[key]=val;
-    try{localStorage.setItem(STORAGE,JSON.stringify(data))}catch(e){}
-  }
-
-  const controls=[...document.querySelectorAll('.progress-control')];
-
-  controls.forEach((bar,index)=>{
+  function visual(bar,v,auto=false){
+    v=clamp(v);
+    bar.dataset.progress=String(v);
+    bar.setAttribute('aria-valuenow',String(v));
+    bar.style.setProperty('--progress-x',v+'%');
+    const fill=bar.querySelector('[data-width]');
+    if(fill){fill.style.width=v+'%';fill.dataset.width=String(v)}
+    const tip=bar.querySelector('.progress-tooltip');
+    if(tip)tip.textContent=auto?`${v}% · 自動計算`:`${v}% · 點擊調整`;
     const subject=bar.closest('.subject');
     const label=subject?.querySelector('.subject-row span');
-    const key=subject?.dataset.subject || `goal-${index}`;
-
-    const stored=readProgress()[key];
-    if(Number.isFinite(stored)) setValue(stored,false);
-
-    function clamp(v){return Math.max(0,Math.min(100,Math.round(v)))}
-
-    function setValue(value,persist=true){
-      const v=clamp(value);
-      bar.dataset.progress=String(v);
-      bar.setAttribute('aria-valuenow',String(v));
-      bar.style.setProperty('--progress-x',v+'%');
-
-      const fill=bar.querySelector('[data-width]');
-      if(fill){
-        fill.style.width=v+'%';
-        fill.dataset.width=String(v);
-      }
-
-      const tooltip=bar.querySelector('.progress-tooltip');
-      if(tooltip) tooltip.textContent=`${v}% · 點擊調整`;
-
-      if(label) label.textContent=`${v}%`;
-
-      // Update the parent goal's percentage label too, when this is the
-      // overall progress control.
-      if(bar.classList.contains('big-progress')){
-        const note=bar.parentElement?.querySelector('.goal-note b');
-        if(note) note.textContent=`${v}%`;
-      }
-
-      if(persist) saveProgress(key,v);
+    if(label)label.textContent=`${v}%`;
+    if(bar.classList.contains('big-progress')){
+      const note=bar.closest('.goal-card')?.querySelector('.goal-note b');
+      if(note)note.textContent=`${v}%`;
     }
+  }
 
-    function valueFromPointer(e){
-      const r=bar.getBoundingClientRect();
-      return clamp(((e.clientX-r.left)/r.width)*100);
-    }
+  cards.forEach((card,gi)=>{
+    const children=[...card.querySelectorAll('.subject .bar.progress-control')];
+    const saved=state[`goal-${gi}`]?.children||{};
 
-    function preview(e){
-      const v=valueFromPointer(e);
-      bar.style.setProperty('--progress-x',v+'%');
-      const tooltip=bar.querySelector('.progress-tooltip');
-      if(tooltip) tooltip.textContent=`${v}% · 點擊調整`;
-      bar.classList.add('is-active');
-    }
+    const sync=()=>{
+      if(!children.length)return;
+      const avg=Math.round(children.reduce((sum,b)=>sum+(Number(b.dataset.progress)||0),0)/children.length);
+      const overall=card.querySelector('.big-progress');
+      if(overall)visual(overall,avg,true);
+      const data=read();
+      data[`goal-${gi}`]={children:{}};
+      children.forEach((b,si)=>{
+        const key=b.closest('.subject')?.dataset.subject||`subject-${si}`;
+        data[`goal-${gi}`].children[key]=Number(b.dataset.progress)||0;
+      });
+      write(data);
+    };
 
-    bar.addEventListener('pointermove',preview);
-    bar.addEventListener('pointerenter',e=>preview(e));
-    bar.addEventListener('pointerleave',()=>{
-      bar.classList.remove('is-active');
-      const v=Number(bar.dataset.progress)||0;
-      bar.style.setProperty('--progress-x',v+'%');
-      const tooltip=bar.querySelector('.progress-tooltip');
-      if(tooltip) tooltip.textContent=`${v}% · 點擊調整`;
+    const setChild=(bar,v)=>{visual(bar,v,false);sync()};
+
+    children.forEach((bar,si)=>{
+      const key=bar.closest('.subject')?.dataset.subject||`subject-${si}`;
+      const initial=Object.prototype.hasOwnProperty.call(saved,key)?saved[key]:(Number(bar.dataset.progress)||0);
+      visual(bar,initial,false);
+
+      const valueFromPointer=e=>{
+        const r=bar.getBoundingClientRect();
+        return clamp(((e.clientX-r.left)/Math.max(1,r.width))*100);
+      };
+
+      bar.addEventListener('pointermove',e=>{
+        const v=valueFromPointer(e);
+        bar.style.setProperty('--progress-x',v+'%');
+        const tip=bar.querySelector('.progress-tooltip');if(tip)tip.textContent=`${v}% · 點擊調整`;
+        bar.classList.add('is-active');
+      });
+      bar.addEventListener('pointerleave',()=>{
+        bar.classList.remove('is-active');
+        const v=Number(bar.dataset.progress)||0;
+        bar.style.setProperty('--progress-x',v+'%');
+        const tip=bar.querySelector('.progress-tooltip');if(tip)tip.textContent=`${v}% · 點擊調整`;
+      });
+      bar.addEventListener('pointerdown',e=>{
+        e.preventDefault();e.stopPropagation();
+        bar.setPointerCapture?.(e.pointerId);
+        setChild(bar,valueFromPointer(e));
+      });
+      bar.addEventListener('click',e=>e.stopPropagation());
+      bar.addEventListener('pointerup',e=>e.stopPropagation());
+      bar.addEventListener('keydown',e=>{
+        const cur=Number(bar.dataset.progress)||0;
+        let next;
+        if(e.key==='ArrowRight'||e.key==='ArrowUp')next=cur+1;
+        else if(e.key==='ArrowLeft'||e.key==='ArrowDown')next=cur-1;
+        else if(e.key==='PageUp')next=cur+10;
+        else if(e.key==='PageDown')next=cur-10;
+        else if(e.key==='Home')next=0;
+        else if(e.key==='End')next=100;
+        else return;
+        e.preventDefault();e.stopPropagation();setChild(bar,next);
+      });
     });
 
-    bar.addEventListener('pointerdown',e=>{
-      e.preventDefault();
-      bar.setPointerCapture?.(e.pointerId);
-      setValue(valueFromPointer(e));
-      bar.classList.add('is-active');
-    });
-
-    bar.addEventListener('pointerup',()=>bar.classList.remove('is-active'));
-
-    bar.addEventListener('keydown',e=>{
-      const current=Number(bar.dataset.progress)||0;
-      let next=current;
-      if(e.key==='ArrowRight'||e.key==='ArrowUp') next=current+1;
-      else if(e.key==='ArrowLeft'||e.key==='ArrowDown') next=current-1;
-      else if(e.key==='PageUp') next=current+10;
-      else if(e.key==='PageDown') next=current-10;
-      else if(e.key==='Home') next=0;
-      else if(e.key==='End') next=100;
-      else return;
-      e.preventDefault();
-      setValue(next);
-      bar.classList.add('is-active');
-      setTimeout(()=>bar.classList.remove('is-active'),700);
-    });
-
-    // Initial visual position.
-    const initial=Number(bar.dataset.progress)||0;
-    bar.style.setProperty('--progress-x',initial+'%');
+    const overall=card.querySelector('.big-progress');
+    if(overall){
+      overall.classList.add('auto-progress');
+      overall.setAttribute('role','progressbar');
+      overall.setAttribute('aria-readonly','true');
+      overall.setAttribute('tabindex','-1');
+      overall.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation()});
+      overall.addEventListener('click',e=>{e.preventDefault();e.stopPropagation()});
+    }
+    sync();
   });
+  try{localStorage.removeItem('forestProgress_v1')}catch(e){}
 })();
-
-
 /* Home nav state */
 (function(){
   const homeLink=document.querySelector('.nav .home-link');
@@ -2979,26 +3495,6 @@ renderRecords();
   updateHome();
 })();
 
-
-/* =========================================================
-   DEFAULT FLIGHT FILM — EVA Air 777-300ER
-   The HTML expects the video file to sit beside this HTML file.
-   ========================================================= */
-(function(){
-  const src='EVA Air 777-300ER aerial filming (Full Version) _長榮航空 波音777-300ER 空拍(完整版) - EVA Air (720p, h264, youtube).mp4';
-  const hero=document.getElementById('heroVideo');
-  const film=document.getElementById('filmPreview');
-  const layer=document.getElementById('flightVideoLayer');
-  const name=document.getElementById('filmFileName');
-  if(hero){
-    hero.src=src;
-    hero.addEventListener('loadeddata',()=>layer?.classList.add('has-video'),{once:true});
-    hero.addEventListener('error',()=>layer?.classList.remove('has-video'),{once:true});
-    hero.play().catch(()=>{});
-  }
-  if(film){film.src=src;film.play().catch(()=>{});}
-  if(name) name.textContent='EVA AIR 777-300ER · AERIAL FILM';
-})();
 
 /* =========================================================
    FLIGHT INTERACTIONS
@@ -3048,71 +3544,26 @@ renderRecords();
     });
   });
 
+  // User video: one file powers both hero background and lower film player.
+  const heroVideo=$('#heroVideo'), layer=$('#flightVideoLayer');
 
-  // Default hero film: the EVA Air 777-300ER video placed beside this HTML.
-  const defaultFilmName='./EVA777.mp4';
-  const heroInput=$('#heroVideoInput'), heroVideo=$('#heroVideo'), layer=$('#flightVideoLayer');
-  const filmInput=$('#filmInput'), film=$('#filmPreview'), empty=$('#filmEmpty'), name=$('#filmFileName');
-
-  const setFilmReady=()=>{
-    layer?.classList.add('video-ready');
-    layer?.classList.remove('video-error');
-  };
-  const setFilmError=()=>{
-    layer?.classList.add('video-error');
-    layer?.classList.remove('video-ready');
-  };
-
-  heroVideo?.addEventListener('loadeddata',setFilmReady);
-  heroVideo?.addEventListener('canplay',setFilmReady);
-  heroVideo?.addEventListener('error',setFilmError);
-
-  // Muted + playsinline allows autoplay in modern browsers.
+  // Default homepage cover: local file next to this HTML.
+  // Folder:
+  //   index.html
+  //   EVA777.mp4
+  const LOCAL_HERO_VIDEO='file:///C:/Users/yehst/OneDrive/Desktop/HTML/EVA%20Air%20777-300ER%20aerial%20filming%20(Full%20Version)%20_長榮航空%20波音777-300ER%20空拍(完整版)%20-%20EVA%20Air%20(720p,%20h264,%20youtube).mp4';
   if(heroVideo){
+    heroVideo.src=LOCAL_HERO_VIDEO;
     heroVideo.muted=true;
     heroVideo.defaultMuted=true;
+    heroVideo.autoplay=true;
+    heroVideo.loop=true;
+    heroVideo.playsInline=true;
+    heroVideo.load();
     heroVideo.play().catch(()=>{});
+    heroVideo.addEventListener('canplay',()=>layer?.classList.add('has-video'),{once:true});
+    heroVideo.addEventListener('error',()=>layer?.classList.add('video-error'),{once:true});
   }
-
-  const setVideo=file=>{
-    if(!file || !file.type.startsWith('video/')) return;
-    const url=URL.createObjectURL(file);
-    if(heroVideo){
-      heroVideo.src=url;
-      heroVideo.load();
-      heroVideo.play().catch(()=>{});
-    }
-    if(film){
-      film.src=url;
-      film.load();
-      film.play().catch(()=>{});
-    }
-    layer?.classList.add('video-ready');
-    if(empty) empty.style.display='none';
-    if(name) name.textContent=file.name.toUpperCase();
-    const hint=$('#videoUploadHint b');
-    if(hint) hint.textContent='影片已載入。重新整理後會回到預設的 EVA Air 影片。';
-  };
-
-  $('#videoUploadTrigger')?.addEventListener('click',()=>heroInput?.click());
-  heroInput?.addEventListener('change',e=>setVideo(e.target.files?.[0]));
-
-  // Lower film player uses the same EVA Air film by default.
-  if(film){
-    film.src=defaultFilmName;
-    film.muted=true;
-    film.loop=true;
-    film.playsInline=true;
-    film.load();
-    film.addEventListener('loadeddata',()=>{
-      if(empty) empty.style.display='none';
-      if(name) name.textContent='EVA AIR · 777-300ER · AERIAL FILM';
-    });
-    film.play().catch(()=>{});
-  }
-
-  $('#filmChoose')?.addEventListener('click',()=>filmInput?.click());
-  filmInput?.addEventListener('change',e=>setVideo(e.target.files?.[0]));
 
   // Drag/drop on film stage.
   $('#filmStage')?.addEventListener('dragover',e=>{e.preventDefault();e.currentTarget.classList.add('dragging')});
@@ -3155,6 +3606,192 @@ renderRecords();
   },true);
 })();
 
+
+/* ===== Sci-fi music deck interaction ===== */
+(function(){
+  const page=document.querySelector('#music');
+  if(!page)return;
+
+  const cards=[...page.querySelectorAll('.track-card')];
+  cards.forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5;
+      const y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(700px) rotateX(${(-y*3).toFixed(2)}deg) rotateY(${(x*3).toFixed(2)}deg) translateY(-5px)`;
+    });
+    card.addEventListener('mouseleave',()=>card.style.transform='');
+  });
+
+  const filters=page.querySelectorAll('[data-music-filter]');
+  filters.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      filters.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter=btn.dataset.musicFilter;
+      let visible=0;
+      cards.forEach(card=>{
+        const show=filter==='all'||card.dataset.genre.split(' ').includes(filter);
+        card.style.display=show?'':'none';
+        if(show)visible++;
+      });
+      const count=page.querySelector('#musicCount');
+      if(count)count.textContent=String(visible).padStart(2,'0')+' TRACKS';
+      const empty=page.querySelector('#musicEmpty');
+      if(empty)empty.style.display=visible?'none':'block';
+    });
+  });
+
+  // Keyboard accessibility: Enter/Space on a track card opens its first Spotify link.
+  cards.forEach(card=>{
+    card.addEventListener('keydown',e=>{
+      if(e.key!=='Enter'&&e.key!==' ')return;
+      const link=card.querySelector('a[href]');
+      if(!link)return;
+      e.preventDefault();
+      link.click();
+    });
+  });
+})();
+
+
+/* ===== Hero cover starts at 00:10 ===== */
+(function(){
+  const video=document.getElementById('heroVideo');
+  if(!video)return;
+  const START_AT=10;
+  let didSeek=false;
+  const seekToTen=()=>{
+    try{
+      if(Number.isFinite(video.duration)&&video.duration>START_AT){
+        video.currentTime=START_AT;didSeek=true;
+      }
+    }catch(e){}
+  };
+  video.addEventListener('loadedmetadata',seekToTen,{once:true});
+  video.addEventListener('canplay',()=>{
+    if(!didSeek)seekToTen();
+    video.play().catch(()=>{});
+  },{once:true});
+  if(video.readyState>=2){seekToTen();video.play().catch(()=>{});}
+})();
+/* ===== Stoic principle rotation ===== */
+(function(){
+  const el=document.getElementById('stoicDailySwitch');
+  const text=document.getElementById('stoicDailyText');
+  if(!el||!text)return;
+  const principles=[
+    '「不要再把餘生浪費在思考別人；把自己能做的事情做好。」',
+    '「你的心靈有能力主宰自己的判斷；不要讓外在的事情替你決定方向。」',
+    '「不要讓未來的事情困擾你；如果它真的到來，你將以現在擁有的理性面對它。」',
+    '「最好的報復，就是不要變成那個傷害你的人。」',
+    '「做現在要求你做的事，並且把它做好。」'
+  ];
+  let i=0;
+  el.addEventListener('click',()=>{
+    i=(i+1)%principles.length;
+    text.style.opacity='0';
+    setTimeout(()=>{
+      text.textContent=principles[i];
+      text.style.opacity='1';
+    },140);
+  });
+})();
+
+
+/* ===== Flight deck readout micro-interactions ===== */
+(function(){
+  const readouts=[...document.querySelectorAll('.flight-readout > div')];
+  const alt=document.getElementById('flightAltitude');
+  const cards=[
+    {label:'ALTITUDE',detail:'CRUISE LEVEL · STABLE'},
+    {label:'DESTINATION',detail:'NAVIGATION LOCK · ON COURSE'},
+    {label:'STATUS',detail:'AUTOPILOT · CLIMBING'}
+  ];
+  readouts.forEach((card,i)=>{
+    card.setAttribute('tabindex','0');
+    card.setAttribute('role','button');
+    const show=()=>{
+      readouts.forEach(x=>x.classList.remove('readout-focus'));
+      card.classList.add('readout-focus');
+      card.style.setProperty('--readout-pulse','1');
+    };
+    card.addEventListener('mouseenter',show);
+    card.addEventListener('focus',show);
+    card.addEventListener('click',show);
+    card.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();show();}
+    });
+  });
+
+  // Keep altitude animated like a cockpit readout, but don't let it jump wildly.
+  if(alt){
+    let target=38000,current=38000;
+    const update=()=>{
+      current += (target-current)*.08;
+      alt.textContent=Math.round(current).toLocaleString();
+      requestAnimationFrame(update);
+    };
+    addEventListener('scroll',()=>{
+      target=38000+Math.min(900,Math.round(scrollY/6));
+    },{passive:true});
+    update();
+  }
+})();
+
+
+/* ===== Mechanical split-flap clock ===== */
+(function(){
+  const root=document.querySelector('.split-flap-clock');
+  if(!root)return;
+  const groups={
+    hours:[...root.querySelectorAll('[data-unit="hours"] .split-card span')],
+    minutes:[...root.querySelectorAll('[data-unit="minutes"] .split-card span')],
+    seconds:[...root.querySelectorAll('[data-unit="seconds"] .split-card span')]
+  };
+  const dateEl=document.getElementById('flightDate');
+  const pad=n=>String(n).padStart(2,'0');
+  const setDigits=(els,value)=>{
+    const str=String(value).padStart(2,'0');
+    els.forEach((el,i)=>{
+      if(el.textContent===str[i])return;
+      const card=el.closest('.split-card');
+      card.classList.remove('flipping');void card.offsetWidth;
+      el.textContent=str[i];card.classList.add('flipping');
+      setTimeout(()=>card.classList.remove('flipping'),320);
+    });
+  };
+  const tick=()=>{
+    const d=new Date();
+    setDigits(groups.hours,pad(d.getHours()));
+    setDigits(groups.minutes,pad(d.getMinutes()));
+    setDigits(groups.seconds,pad(d.getSeconds()));
+    if(dateEl){
+      const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      dateEl.textContent=`${pad(d.getDate())} ${months[d.getMonth()]} ${d.getFullYear()}`;
+    }
+  };
+  tick();setInterval(tick,1000);
+})();
+
+
+
+/* Final flight video behavior: always begin and loop from second 10. */
+(function(){
+  const video=document.getElementById('heroVideo');
+  if(!video)return;
+  const START=10;
+  let ready=false;
+  const seekToStart=()=>{
+    if(!Number.isFinite(video.duration) || video.duration<=START)return;
+    try{video.currentTime=START;ready=true;}catch(_){ }
+  };
+  video.addEventListener('loadedmetadata',seekToStart,{once:true});
+  video.addEventListener('ended',()=>{
+    try{video.currentTime=START;video.play().catch(()=>{});}catch(_){ }
+  });
+  if(video.readyState>=1) seekToStart();
+})();
 </script>
 
 
