@@ -3591,7 +3591,7 @@ if (heroVideo) {
   const alt=$('#flightAltitude');
   addEventListener('scroll',()=>{
     if(!alt)return;
-    const base=38000, delta=Math.round(Math.min(900,scrollY/6));
+    const base=32000, delta=Math.round(Math.min(900,scrollY/6));
     alt.textContent=(base+delta).toLocaleString();
   },{passive:true});
 
